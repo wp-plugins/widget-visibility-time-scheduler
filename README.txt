@@ -22,7 +22,7 @@ This plugin works perfectly with Jetpack's "Widget Visibility" module. Both plug
 = Using The WordPress Dashboard =
 
 1. Navigate to the 'Add New' in the plugins dashboard
-2. Search for 'Quick Widgets'
+2. Search for 'Widget Visibility Time Scheduler'
 3. Click 'Install Now'
 4. Activate the plugin on the Plugin dashboard
 5. Go to 'Widgets', set the visibility period in each widget
