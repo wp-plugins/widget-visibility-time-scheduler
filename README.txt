@@ -3,7 +3,7 @@ Contributors: Hinjiriyo
 Tags: control, date, day, display, hide, hour, jetpack, minute, month, period, plan, schedule, scheduler, show, time, visibility, widget, widgets, year
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.0.1
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,6 +88,9 @@ If you want to contribute a translation of the plugin in your language it would 
 
 == Changelog ==
 
+= 1.1 =
+Fixed bug which did not show settings correctly in backend
+
 = 1.0.1 =
 Successfully tested with WordPress 4.1
 
@@ -95,6 +98,9 @@ Successfully tested with WordPress 4.1
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.1 =
+Fixed display bug
 
 = 1.0.1 =
 Successfully tested with WordPress 4.1

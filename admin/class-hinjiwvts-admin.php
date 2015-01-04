@@ -126,6 +126,7 @@ class Hinjiwvts_Admin {
 	 * Print a message about the location of the plugin in the WP backend
 	 * 
 	 * @since    1.0.0
+	 * @updated    1.1 fixed bug which did not show settings in backend ( change $widget->get_settings() to $instance )
 	 */
 	public function display_activation_message () {
 		$url  = admin_url( 'widgets.php' );
@@ -154,16 +155,11 @@ class Hinjiwvts_Admin {
 			}
 		}
 
-		// get saved settings of widget
-		$settings = $widget->get_settings();
-		$settings = array_shift( $settings ); // get first element of widget settings
-		
 		// check and sanitize stored settings; if not set: set them to current time
 		$hinjiwvts = array();
-		if ( isset( $settings[ 'hinjiwvts' ] ) ) {
-			$hinjiwvts = $settings[ 'hinjiwvts' ];
+		if ( isset( $instance[ 'hinjiwvts' ] ) ) {
+			$hinjiwvts = $instance[ 'hinjiwvts' ];
 		}
-
 		if ( ! isset( $hinjiwvts[ 'is_active' ] ) ) {
 			$hinjiwvts[ 'is_active' ] = '0';
 		}
@@ -205,7 +201,7 @@ class Hinjiwvts_Admin {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param int|bool $boundary The tabindex attribute to add. Default 0.
+	 * @param string $boundary, array $settings, array $field_ids
 	 */
 	private function touch_time( $boundary, $settings, $field_ids ) {
 		global $wp_locale;
@@ -296,6 +292,7 @@ class Hinjiwvts_Admin {
 		
 		// if unchecked, save time and quit now without settings
 		if ( ! $hinjiwvts[ 'is_active' ] ) {
+			// if former settings are in the instance: delete them
 			if ( isset( $instance[ 'hinjiwvts' ] ) ) {
 				unset( $instance[ 'hinjiwvts' ] );
 			}
