@@ -47,9 +47,9 @@ class Hinjiwvts_Public {
 	 * @var      string    $hinjiwvts       The name of the plugin.
 	 * @var      string    $version    The version of this plugin.
 	 */
-	public function __construct( $hinjiwvts, $version ) {
+	public function __construct( $plugin_name, $version ) {
 
-		$this->hinjiwvts = $hinjiwvts;
+		$this->hinjiwvts = $plugin_name;
 		$this->version = $version;
 
 	}
@@ -57,26 +57,28 @@ class Hinjiwvts_Public {
 	/**
 	 * Determine whether the widget should be displayed based on time set by the user.
 	 *
-	 * @param array $instance The widget settings.
+	 * @param array $widget_settings The widget settings.
 	 * @return array Settings to display or bool false to hide.
 	 */
-	public static function filter_widget( $instance ) {
+	public static function filter_widget( $widget_settings ) {
 
 		// return (= show widget) if no stored settings for this plugin
-		if ( ! isset( $instance['hinjiwvts'] ) ) return $instance;
-		if ( ! isset( $instance['hinjiwvts']['timestamps'] ) ) return $instance;
-		if ( ! isset( $instance['hinjiwvts']['timestamps']['start'] ) ) return $instance;
-		if ( ! isset( $instance['hinjiwvts']['timestamps']['end'] ) ) return $instance;
+		if ( ! isset( $widget_settings['hinjiwvts'] ) ) return $widget_settings;
+		if ( ! isset( $widget_settings['hinjiwvts']['timestamps'] ) ) return $widget_settings;
+		if ( ! isset( $widget_settings['hinjiwvts']['timestamps']['start'] ) ) return $widget_settings;
+		if ( ! isset( $widget_settings['hinjiwvts']['timestamps']['end'] ) ) return $widget_settings;
+		if ( ! isset( $widget_settings['hinjiwvts']['daysofweek'] ) ) return $widget_settings;
 
-		$current_time = time(); // get current Unix timestamp
+		$current_time = current_time( 'timestamp' ); // get current local blog timestamp
+		$current_dayofweek = (int) date( 'N', $current_time ); // get ISO-8601 numeric representation of the day of the week; 1 (for Monday) through 7 (for Sunday)
 		
 		// get and sanitize stored settings
-		$start_time = (int) $instance['hinjiwvts']['timestamps']['start'];
-		$end_time   = (int) $instance['hinjiwvts']['timestamps']['end'];
+		$start_time = (int) $widget_settings['hinjiwvts']['timestamps']['start'];
+		$end_time   = (int) $widget_settings['hinjiwvts']['timestamps']['end'];
 
-		// if current time is between set timepoints
-		if ( $start_time <= $current_time && $current_time <= $end_time) {
-			return $instance; // display widget
+		// if current time is between required timepoints and is required day of week
+		if ( $start_time <= $current_time and $current_time <= $end_time and in_array( $current_dayofweek, $widget_settings['hinjiwvts']['daysofweek'] ) ) {
+			return $widget_settings; // display widget
 		} else {
 			return false; // hide widget
 		}
