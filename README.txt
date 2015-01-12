@@ -3,17 +3,17 @@ Contributors: Hinjiriyo
 Tags: control, date, day, display, forever, future, hide, hour, jetpack, minute, month, period, plan, schedule, scheduler, show, time, unlimited, visibility, weekdays, widget, widgets, year
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Control the visibility of each widget based on date and time easily.
+Control the visibility of each widget based on date, time and weekday easily.
 
 == Description ==
 
 = Show and hide widgets within a desired period and at given weekdays =
 
-The Widget Visibility Time Scheduler enables you to set the period and weekdays of the visibility of each widget easily.
+The Widget Visibility Time Scheduler enables you to set the period and weekdays of the visibility of each widget easily. It is available in english, german and spanish language.
 
 = What users said =
 
@@ -29,6 +29,7 @@ The user interface is available in
 
 * English
 * German
+* Spanish
 
 == Installation ==
 
@@ -100,8 +101,9 @@ Actually these languages are supported:
 
 * English
 * German
+* Spanish
 
-Further translations are welcome. If you want to give in your translation please leave a notice in the [plugin's support forum](https://wordpress.org/plugins/widget-visibility-time-scheduler/).
+Further translations are welcome. If you want to give in your translation please leave a notice in the [plugin's support forum](https://wordpress.org/support/plugin/widget-visibility-time-scheduler).
 
 = Where is the *.pot file for translating the plugin in any language? =
 
@@ -109,9 +111,17 @@ If you want to contribute a translation of the plugin in your language it would 
 
 == Screenshots ==
 
-1. You see the interface of the Widget Visibility Time Scheduler in the Archive Widget. These fields appear in each other widget.
+1. You see the english interface of the Widget Visibility Time Scheduler in the Archive Widget. These fields appear in each other widget.
+2. German interface of the Widget Visibility Time Scheduler in the Archive Widget
+3. Spanish interface of the Widget Visibility Time Scheduler in the Archive Widget
 
 == Changelog ==
+
+= 2.1 =
+* Added spanish translation. Thank you very much [Eduardo Larequi](https://wordpress.org/support/profile/elarequi)!
+* Revised the description of the plugin
+* Added screenshots of the widget in german and spanish
+* Updated *.pot file and german translation
 
 = 2.0 =
 * **Important advice: You must readjust each scheduler settings once!** The plugin is revised and extended fundamentally to consider user requests
@@ -134,6 +144,9 @@ Successfully tested with WordPress 4.1
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.1 =
+Added spanish translation, revised the description of the plugin
 
 = 2.0 =
 Important advice: You must readjust each scheduler settings once! The plugin is revised and extended fundamentally.
