@@ -125,7 +125,7 @@ class Hinjiwvts_Admin {
 		$this->ss = 0; // set seconds to zero
 		
 		// not in use, just for the po-editor to display the translation on the plugins overview list
-		$foo = __( 'Control the visibility of each widget based on date and time easily.', 'hinjiwvts' );
+		$foo = __( 'Control the visibility of each widget based on date, time and weekday easily.', 'hinjiwvts' );
 
 	}
 

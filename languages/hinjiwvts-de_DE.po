@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Widget Visibility Time Scheduler\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/plugins/widget-visibility-time-"
 "scheduler\n"
-"POT-Creation-Date: 2015-01-08 15:50+0100\n"
-"PO-Revision-Date: 2015-01-08 15:54+0100\n"
+"POT-Creation-Date: 2015-01-08 22:40+0100\n"
+"PO-Revision-Date: 2015-01-08 22:43+0100\n"
 "Last-Translator: Martin Stehle <m.stehle@gmx.de>\n"
 "Language-Team:  <m.stehle@gmx.de>\n"
 "Language: de_DE\n"
@@ -21,8 +21,10 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: admin/class-hinjiwvts-admin.php:128
-msgid "Control the visibility of each widget based on date and time easily."
-msgstr "Steuert die Sichtbarkeit jedes Widgets aufgrund von Zeitangaben."
+msgid ""
+"Control the visibility of each widget based on date, time and weekday easily."
+msgstr ""
+"Regelt die Sichtbarkeit jedes Widgets nach Datum, Uhrzeit und Wochentag."
 
 #: admin/class-hinjiwvts-admin.php:152
 #, php-format

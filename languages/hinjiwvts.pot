@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: admin/class-hinjiwvts-admin.php:128
-msgid "Control the visibility of each widget based on date and time easily."
+msgid "Control the visibility of each widget based on date, time and weekday easily."
 msgstr ""
 
 #: admin/class-hinjiwvts-admin.php:152
