@@ -3,7 +3,7 @@ Contributors: Hinjiriyo
 Tags: control, date, day, display, forever, future, hide, hour, jetpack, minute, month, period, plan, schedule, scheduler, show, time, unlimited, visibility, weekdays, widget, widgets, year
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 2.1
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -117,6 +117,9 @@ If you want to contribute a translation of the plugin in your language it would 
 
 == Changelog ==
 
+= 2.1.1 =
+Fixed typo in the spanish translation 
+
 = 2.1 =
 * Added spanish translation. Thank you very much [Eduardo Larequi](https://wordpress.org/support/profile/elarequi)!
 * Revised the description of the plugin
@@ -144,6 +147,9 @@ Successfully tested with WordPress 4.1
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.1.1 =
+Fixed typo in the spanish translation 
 
 = 2.1 =
 Added spanish translation, revised the description of the plugin

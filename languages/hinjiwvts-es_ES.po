@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://wordpress.org/plugins/widget-visibility-time-"
 "scheduler\n"
 "POT-Creation-Date: 2015-01-09 14:39+0100\n"
-"PO-Revision-Date: 2015-01-09 14:40+0100\n"
+"PO-Revision-Date: 2015-01-13 17:36+0100\n"
 "Last-Translator: Martin Stehle <m.stehle@gmx.de>\n"
 "Language-Team: PNTE <blogs@educacion.navarra.es>\n"
 "Language: es\n"
@@ -41,7 +41,7 @@ msgstr ""
 
 #: admin/partials/hinjiwvts-fieldsets.php:18
 msgid "Visibility Time Scheduler"
-msgstr "Progración de la visibilidad de acuerdo con la fecha y hora"
+msgstr "Programación de la visibilidad de acuerdo con la fecha y hora"
 
 #: admin/partials/hinjiwvts-fieldsets.php:22
 msgid "Show widget within the given period only?"
