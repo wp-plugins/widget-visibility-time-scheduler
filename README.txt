@@ -1,9 +1,9 @@
 === Widget Visibility Time Scheduler ===
 Contributors: Hinjiriyo
-Tags: control, date, day, display, forever, future, hide, hour, jetpack, minute, month, period, plan, schedule, scheduler, show, time, unlimited, visibility, weekdays, widget, widgets, year
+Tags: brazilian, control, date, day, deutsch, display, español, forever, future, hide, hour, jetpack, minute, month, period, plan, português do brasil, portuguese, schedule, scheduler, show, time, unlimited, visibility, weekdays, widget, widgets, year
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 2.1.1
+Stable tag: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Control the visibility of each widget based on date, time and weekday easily.
 
 = Show and hide widgets within a desired period and at given weekdays =
 
-The Widget Visibility Time Scheduler enables you to set the period and weekdays of the visibility of each widget easily. It is available in english, german and spanish language.
+The Widget Visibility Time Scheduler enables you to set the period and weekdays of the visibility of each widget easily. It is available in english, german, spanish and brazilian portuguese language.
 
 = What users said =
 
@@ -28,8 +28,9 @@ This plugin works perfectly with Jetpack's "Widget Visibility" module. Both plug
 The user interface is available in
 
 * English
-* German
-* Spanish
+* German (Deutsch)
+* Spanish (Español)
+* Brazilian Portuguese (Português do Brasil)
 
 == Installation ==
 
@@ -100,8 +101,9 @@ You can find a detailed and understandable explanation at [Wikipedia: Year 2038 
 Actually these languages are supported:
 
 * English
-* German
-* Spanish
+* German (Deutsch)
+* Spanish (Español)
+* Brazilian Portuguese (Português do Brasil)
 
 Further translations are welcome. If you want to give in your translation please leave a notice in the [plugin's support forum](https://wordpress.org/support/plugin/widget-visibility-time-scheduler).
 
@@ -114,8 +116,13 @@ If you want to contribute a translation of the plugin in your language it would 
 1. You see the english interface of the Widget Visibility Time Scheduler in the Archive Widget. These fields appear in each other widget.
 2. German interface of the Widget Visibility Time Scheduler in the Archive Widget
 3. Spanish interface of the Widget Visibility Time Scheduler in the Archive Widget
+3. Brazilian portuguese interface of the Widget Visibility Time Scheduler in the Archive Widget
 
 == Changelog ==
+
+= 2.2 =
+* Added brazilian portuguese translation
+* Added screenshot of the widget in brazilian portuguese language
 
 = 2.1.1 =
 Fixed typo in the spanish translation 
@@ -123,7 +130,7 @@ Fixed typo in the spanish translation
 = 2.1 =
 * Added spanish translation. Thank you very much [Eduardo Larequi](https://wordpress.org/support/profile/elarequi)!
 * Revised the description of the plugin
-* Added screenshots of the widget in german and spanish
+* Added screenshots of the widget in german and spanish language
 * Updated *.pot file and german translation
 
 = 2.0 =
@@ -147,6 +154,9 @@ Successfully tested with WordPress 4.1
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.2 =
+Added brazilian portuguese translation
 
 = 2.1.1 =
 Fixed typo in the spanish translation 
