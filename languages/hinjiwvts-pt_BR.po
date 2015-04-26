@@ -1,19 +1,27 @@
+# Copyright (C) 2014
+# This file is distributed under the same license as the plugin package.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: Widget Visibility Time Scheduler brazilian portuguese\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/plugins/widget-visibility-time-"
-"scheduler\n"
-"POT-Creation-Date: 2015-01-08 15:50+0100\n"
-"PO-Revision-Date: 2015-01-15 10:53+0100\n"
+"schedulerscheduler\n"
+"POT-Creation-Date: 2015-04-26 23:54+0100\n"
+"PO-Revision-Date: 2015-04-26 23:54+0100\n"
 "Last-Translator: Martin Stehle <m.stehle@gmx.de>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.3\n"
-"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: admin/class-hinjiwvts-admin.php:128
 msgid ""
@@ -40,24 +48,28 @@ msgstr "Widget Visibility Time Scheduler (Agendador de Visibilidade de Widget)"
 msgid "Show widget within the given period only?"
 msgstr "Exibir widget somente dentro do período especificado?"
 
-#: admin/partials/hinjiwvts-fieldsets.php:24
+#: admin/partials/hinjiwvts-fieldsets.php:27
+msgid "Opposed action: Hide the widget during schedule, else show it?"
+msgstr "Contrário ato: Ocultar widget em vez de mostrar?"
+
+#: admin/partials/hinjiwvts-fieldsets.php:29
 #, php-format
 msgid "The timezone as set in %s takes effect."
 msgstr "O fuso horário como definido em %s entra em vigor."
 
-#: admin/partials/hinjiwvts-fieldsets.php:26
+#: admin/partials/hinjiwvts-fieldsets.php:31
 msgid "Start time of widget visibility"
 msgstr "Hora de início da visibilidade"
 
-#: admin/partials/hinjiwvts-fieldsets.php:30
+#: admin/partials/hinjiwvts-fieldsets.php:35
 msgid "End time of widget visibility"
 msgstr "Hora de término da visibilidade"
 
-#: admin/partials/hinjiwvts-fieldsets.php:35
+#: admin/partials/hinjiwvts-fieldsets.php:40
 msgid "Show widget for an unlimited time?"
 msgstr "Mostrar widget por tempo indeterminado?"
 
-#: admin/partials/hinjiwvts-fieldsets.php:37
+#: admin/partials/hinjiwvts-fieldsets.php:42
 msgid ""
 "Why only up to end of 2037? Read <a href=\"http://en.wikipedia.org/wiki/"
 "Year_2038_problem\" lang=\"en\">Wikipedia: Year 2038 problem</a>."
@@ -65,10 +77,10 @@ msgstr ""
 "Por que somente até o fim de 2037? Leia <a href=\"http://pt.wikipedia.org/"
 "wiki/Problema_do_ano_2038\" lang=\"pt\">Problema do ano 2038</a>."
 
-#: admin/partials/hinjiwvts-fieldsets.php:40
+#: admin/partials/hinjiwvts-fieldsets.php:45
 msgid "Weekdays of widget visibility"
 msgstr "Dias de visibilidade do widget"
 
-#: admin/partials/hinjiwvts-fieldsets.php:41
+#: admin/partials/hinjiwvts-fieldsets.php:46
 msgid "Check at least one weekday to activate the scheduler."
 msgstr "Escolha pelo menos um dia para ativar o agendador."

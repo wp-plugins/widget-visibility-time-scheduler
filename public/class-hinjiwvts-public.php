@@ -57,6 +57,7 @@ class Hinjiwvts_Public {
 	/**
 	 * Determine whether the widget should be displayed based on time set by the user.
 	 *
+	 * @since    1.0.0
 	 * @param array $widget_settings The widget settings.
 	 * @return array Settings to display or bool false to hide.
 	 */
@@ -73,14 +74,15 @@ class Hinjiwvts_Public {
 		$current_dayofweek = (int) date( 'N', $current_time ); // get ISO-8601 numeric representation of the day of the week; 1 (for Monday) through 7 (for Sunday)
 		
 		// get and sanitize stored settings
-		$start_time = (int) $widget_settings['hinjiwvts']['timestamps']['start'];
-		$end_time   = (int) $widget_settings['hinjiwvts']['timestamps']['end'];
-
+		$start_time  = (int) $widget_settings['hinjiwvts']['timestamps']['start'];
+		$end_time    = (int) $widget_settings['hinjiwvts']['timestamps']['end'];
+		$is_opposite = ( isset( $widget_settings['hinjiwvts']['is_opposite'] ) ) ? true : false;
+		
 		// if current time is between required timepoints and is required day of week
 		if ( $start_time <= $current_time and $current_time <= $end_time and in_array( $current_dayofweek, $widget_settings['hinjiwvts']['daysofweek'] ) ) {
-			return $widget_settings; // display widget
+			return ( $is_opposite ) ? false : $widget_settings; // if functioning opposite hide widget else show widget
 		} else {
-			return false; // hide widget
+			return ( $is_opposite ) ? $widget_settings : false; // if functioning opposite show widget else hide widget
 		}
 
 	}

@@ -16,7 +16,7 @@
  * Plugin Name:       Widget Visibility Time Scheduler
  * Plugin URI:        http://wordpress.org/plugins/widget-visibility-time-scheduler
  * Description:       Control the visibility of each widget based on date, time and weekday easily.
- * Version:           2.2
+ * Version:           3.0
  * Author:            Martin Stehle
  * Author URI:        http://stehle-internet.de/
  * License:           GPL-2.0+

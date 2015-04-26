@@ -21,6 +21,11 @@ $text = current_user_can( 'manage_options' ) ? sprintf( '<a href="%s">%s</a>', a
 		<input class="checkbox" type="checkbox" <?php checked( $this->scheduler[ 'is_active' ], 1 ); ?> id="<?php echo $field_id; ?>" name="hinjiwvts[is_active]" value="1" />
 		<label for="<?php echo $field_id; ?>"><?php _e( 'Show widget within the given period only?', 'hinjiwvts' ); ?></label>
 	</p>
+<?php $field_id = $widget->get_field_id( 'is-opposite' ); ?>
+	<p>
+		<input class="checkbox" type="checkbox" <?php checked( $this->scheduler[ 'is_opposite' ], 1 ); ?> id="<?php echo $field_id; ?>" name="hinjiwvts[is_opposite]" value="1" />
+		<label for="<?php echo $field_id; ?>"><?php _e( 'Opposed action: Hide the widget during schedule, else show it?', 'hinjiwvts' ); ?></label>
+	</p>
 	<p><?php printf( __( 'The timezone as set in %s takes effect.', 'hinjiwvts' ), $text ); ?></p>
 	<fieldset>
 		<legend><?php _e( 'Start time of widget visibility', 'hinjiwvts' ); ?></legend>

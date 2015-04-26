@@ -186,6 +186,13 @@ class Hinjiwvts_Admin {
 			$this->scheduler[ 'is_active' ] = 0;
 		}
 
+		// action status
+		if ( isset( $this->scheduler[ 'is_opposite' ] ) ) {
+			$this->scheduler[ 'is_opposite' ] = 1;
+		} else {
+			$this->scheduler[ 'is_opposite' ] = 0;
+		}
+		
 		// infinite end
 		if ( isset( $this->scheduler[ 'end_infinite' ] ) ) {
 			$this->scheduler[ 'end_infinite' ] = 1;
@@ -356,8 +363,13 @@ class Hinjiwvts_Admin {
 		}
 
 		// set active status
-		$scheduler[ 'is_active' ] = '1';
+		$scheduler[ 'is_active' ] = 1;
 		
+		// set widget action: show / hide ?
+		if ( isset( $_POST[ 'hinjiwvts' ][ 'is_opposite' ] ) ) {
+			$scheduler[ 'is_opposite' ] = 1;
+		}
+
 		// if neither activated nor weekday checked, save time and quit now without settings
 		if ( isset( $_POST[ 'hinjiwvts' ][ 'end_infinite' ] ) ) {
 			$scheduler[ 'end_infinite' ] = 1;
