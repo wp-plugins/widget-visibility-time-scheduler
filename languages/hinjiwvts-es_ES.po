@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Widget Visibility Time Scheduler en español\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/plugins/widget-visibility-time-"
 "scheduler\n"
-"POT-Creation-Date: 2015-01-09 14:39+0100\n"
-"PO-Revision-Date: 2015-01-13 17:36+0100\n"
+"POT-Creation-Date: 2015-04-13 15:39+0100\n"
+"PO-Revision-Date: 2015-04-26 23:50+0100\n"
 "Last-Translator: Martin Stehle <m.stehle@gmx.de>\n"
 "Language-Team: PNTE <blogs@educacion.navarra.es>\n"
 "Language: es\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.1\n"
+"X-Generator: Poedit 1.7.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
@@ -47,24 +47,28 @@ msgstr "Programación de la visibilidad de acuerdo con la fecha y hora"
 msgid "Show widget within the given period only?"
 msgstr "¿Quieres mostrar el widget solo dentro de un período de tiempo dado?"
 
-#: admin/partials/hinjiwvts-fieldsets.php:24
+#: admin/partials/hinjiwvts-fieldsets.php:27
+msgid "Opposed action: Hide the widget during schedule, else show it?"
+msgstr "Antagonista acción: Ocultar widget en vez de mostrar?"
+
+#: admin/partials/hinjiwvts-fieldsets.php:29
 #, php-format
 msgid "The timezone as set in %s takes effect."
 msgstr "Se aplicará la zona horaria configurada en %s."
 
-#: admin/partials/hinjiwvts-fieldsets.php:26
+#: admin/partials/hinjiwvts-fieldsets.php:31
 msgid "Start time of widget visibility"
 msgstr "Hora de comienzo de la visibilidad del widget"
 
-#: admin/partials/hinjiwvts-fieldsets.php:30
+#: admin/partials/hinjiwvts-fieldsets.php:35
 msgid "End time of widget visibility"
 msgstr "Hora de fin de la visibilidad del widget"
 
-#: admin/partials/hinjiwvts-fieldsets.php:35
+#: admin/partials/hinjiwvts-fieldsets.php:40
 msgid "Show widget for an unlimited time?"
 msgstr "¿Quieres mostrar el widget por un período de tiempo ilimitado?"
 
-#: admin/partials/hinjiwvts-fieldsets.php:37
+#: admin/partials/hinjiwvts-fieldsets.php:42
 msgid ""
 "Why only up to end of 2037? Read <a href=\"http://en.wikipedia.org/wiki/"
 "Year_2038_problem\" lang=\"en\">Wikipedia: Year 2038 problem</a>."
@@ -73,11 +77,11 @@ msgstr ""
 "href=\"http://es.wikipedia.org/wiki/Problema_del_a%C3%B1o_2038\" lang=\"es\" "
 "target=\"_blank\" title=\"Problema del año 2038\">Problema del año 2038</a>."
 
-#: admin/partials/hinjiwvts-fieldsets.php:40
+#: admin/partials/hinjiwvts-fieldsets.php:45
 msgid "Weekdays of widget visibility"
 msgstr "Días de la semana de visibilidad del widget"
 
-#: admin/partials/hinjiwvts-fieldsets.php:41
+#: admin/partials/hinjiwvts-fieldsets.php:46
 msgid "Check at least one weekday to activate the scheduler."
 msgstr "Marca al menos un día de la semana para activar el programador."
 

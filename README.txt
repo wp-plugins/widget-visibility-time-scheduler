@@ -2,8 +2,8 @@
 Contributors: Hinjiriyo
 Tags: brazilian, control, date, day, deutsch, display, español, forever, future, hide, hour, jetpack, minute, month, period, plan, português do brasil, portuguese, schedule, scheduler, show, time, unlimited, visibility, weekdays, widget, widgets, year
 Requires at least: 3.5
-Tested up to: 4.1
-Stable tag: 2.2
+Tested up to: 4.2
+Stable tag: 3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Control the visibility of each widget based on date, time and weekday easily.
 
 = Show and hide widgets within a desired period and at given weekdays =
 
-The Widget Visibility Time Scheduler enables you to set the period and weekdays of the visibility of each widget easily. It is available in english, german, spanish and brazilian portuguese language.
+The Widget Visibility Time Scheduler enables you to set the period and weekdays of the visibility of each widget easily. You can set to show or to hide the widget during schedule. It is available in english, german, spanish and brazilian portuguese language.
 
 = What users said =
 
@@ -64,7 +64,7 @@ The user interface is available in
 = How to use? =
 
 1. Go to the Widget page in the WordPress backend. Every widget is enhanced by easy-to-use fields for time data.
-2. Set comfortably the start point of time, the end point of time and the weekdays when to display the widget. With the "unlimited" option the widget is displayed "forever" in the future.
+2. Set comfortably the start point of time, the end point of time and the weekdays when to display or to hide the widget. With the "unlimited" option the widget is displayed "forever" in the future. If you want to hide the widget during schedule, activate the Hide option.
 3. After you have define the time data just save the widget settings. Done!
 
 = Is there an option page? =
@@ -120,8 +120,13 @@ If you want to contribute a translation of the plugin in your language it would 
 
 == Changelog ==
 
+= 3.0 =
+* Added option: hide during schedule, else show the widget
+* Updated screenshots
+* Updated *.pot file and translations
+
 = 2.2 =
-* Added brazilian portuguese translation
+* Added brazilian portuguese translation. Thank you very much [Christiano Albano P.](https://wordpress.org/support/profile/cristianoalbanop)
 * Added screenshot of the widget in brazilian portuguese language
 
 = 2.1.1 =
@@ -154,6 +159,9 @@ Successfully tested with WordPress 4.1
 * Initial release.
 
 == Upgrade Notice ==
+
+= 3.0 =
+Added inversed action option
 
 = 2.2 =
 Added brazilian portuguese translation
