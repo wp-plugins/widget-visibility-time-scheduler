@@ -69,7 +69,7 @@ class Hinjiwvts {
 	public function __construct() {
 
 		$this->hinjiwvts = 'hinjiwvts';
-		$this->version = '3.0';
+		$this->version = '3.1';
 
 		$this->load_dependencies();
 		$this->set_locale();

@@ -1,0 +1,84 @@
+# Copyright (C) 2014
+# This file is distributed under the same license as the plugin package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Widget Visibility Time Scheduler\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/plugins/widget-visibility-time-"
+"schedulerscheduler\n"
+"POT-Creation-Date: 2015-07-17 11:00+0330\n"
+"PO-Revision-Date: 2015-07-17 11:22+0330\n"
+"Last-Translator: \n"
+"Language-Team: AsreElm.com <m.stehle@gmx.de>\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.6\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;"
+"esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-hinjiwvts-admin.php:128
+msgid ""
+"Control the visibility of each widget based on date, time and weekday easily."
+msgstr "کنترل آسان نمایش هر ابزارک بر اساس تاریخ، زمان و ایام هفته."
+
+#: admin/class-hinjiwvts-admin.php:152
+#, php-format
+msgid ""
+"Welcome to Widget Visibility Time Scheduler! You can set the time based "
+"visibility in each widget on the page %s."
+msgstr ""
+"به سیستم زمان بندی نمایش ابزارکها! (Widget Visibility Time Scheduler!) خوش "
+"آمدید. با استفاده از این سیستم میتوانید نمایش داده شدن هر ابزارک را در برگه "
+"ی %s زمان بندی کنید."
+
+#: admin/partials/hinjiwvts-fieldsets.php:18
+msgid "Visibility Time Scheduler"
+msgstr "زمان بندی نمایش"
+
+#: admin/partials/hinjiwvts-fieldsets.php:22
+msgid "Show widget within the given period only?"
+msgstr "نمایش ابزارک فقط در بازه زمانی مشخص شده؟"
+
+#: admin/partials/hinjiwvts-fieldsets.php:27
+msgid "Opposed action: Hide the widget during schedule, else show it?"
+msgstr ""
+"انتخاب معکوس: مخفی کردن ابزارک در زمان مشخص شده و نمایش آن در زمانهایی غیر "
+"از زمان انتخاب شده؟"
+
+#: admin/partials/hinjiwvts-fieldsets.php:29
+#, php-format
+msgid "The timezone as set in %s takes effect."
+msgstr "منطقه ی زمانی %s"
+
+#: admin/partials/hinjiwvts-fieldsets.php:31
+msgid "Start time of widget visibility"
+msgstr "زمان آغاز نمایش ابزارک"
+
+#: admin/partials/hinjiwvts-fieldsets.php:35
+msgid "End time of widget visibility"
+msgstr "زمان پایان نمایش ابزارک"
+
+#: admin/partials/hinjiwvts-fieldsets.php:40
+msgid "Show widget for an unlimited time?"
+msgstr "ابزارک بدون محدودیت زمانی نمایش داده شود؟"
+
+#: admin/partials/hinjiwvts-fieldsets.php:42
+msgid ""
+"Why only up to end of 2037? Read <a href=\"http://en.wikipedia.org/wiki/"
+"Year_2038_problem\" lang=\"en\">Wikipedia: Year 2038 problem</a>."
+msgstr ""
+"چرا فقط تا سال 2037؟ مقاله ی <a href=\"https://fa.wikipedia.org/wiki/"
+"%D9%85%D8%B4%DA%A9%D9%84_%D8%B3%D8%A7%D9%84_%DB%B2%DB%B0%DB%B3%DB%B8\" lang="
+"\"en\">مشکل سال 2038 </a>را بخوانید."
+
+#: admin/partials/hinjiwvts-fieldsets.php:45
+msgid "Weekdays of widget visibility"
+msgstr "انتخاب روزهای هفته برای نمایش ابزارک"
+
+#: admin/partials/hinjiwvts-fieldsets.php:46
+msgid "Check at least one weekday to activate the scheduler."
+msgstr "حداقل باید یک روز هفته را برای فعال شدن ابزارک انتخاب کنید."
