@@ -23,13 +23,13 @@
 class Hinjiwvts_Admin {
 
 	/**
-	 * The ID of this plugin.
+	 * The slug of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $plugin_name    The name of this plugin.
+	 * @var      string    $plugin_slug    The slug of this plugin.
 	 */
-	private $plugin_name;
+	private $plugin_slug;
 
 	/**
 	 * The version of this plugin.
@@ -41,49 +41,85 @@ class Hinjiwvts_Admin {
 	private $version;
 
 	/**
+	 * Actions of widget
+	 *
+	 * @since    4.0.0
+	 * @access   private
+	 * @var      array    $modes    actions of widget
+	 */
+	private $modes;
+
+	/**
 	 * Current day on server
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $dd    current day
+	 * @var      string    $current_dd    current day
 	 */
-	private $dd;
+	private $current_dd;
 
 	/**
 	 * Current month on server
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $mm    current month
+	 * @var      string    $current_mm    current month
 	 */
-	private $mm;
+	private $current_mm;
 
 	/**
 	 * Current year on server
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $yy    current year
+	 * @var      string    $current_yy    current year
 	 */
-	private $yy;
+	private $current_yy;
 
 	/**
 	 * Current hour on server
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $hh    current hour
+	 * @var      string    $current_hh    current hour
 	 */
-	private $hh;
+	private $current_hh;
 
 	/**
 	 * Current minute on server
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $mn    current minute
+	 * @var      string    $current_mn    current minute
 	 */
-	private $mn;
+	private $current_mn;
+
+	/**
+	 * Current second on server
+	 *
+	 * @since    2.0.0
+	 * @access   private
+	 * @var      string    $current_ss    current second
+	 */
+	private $current_ss;
+
+	/**
+	 * Start and end names for widget
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      array    $names_widget_boundaries    Start and end names for widget
+	 */
+	private $names_widget_boundaries;
+
+	/**
+	 * Values and names for the weekdays
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      array    $names_widget_boundaries    Values and names for the weekdays
+	 */
+	private $weekdays;
 
 	/**
 	 * Form field ids
@@ -107,25 +143,36 @@ class Hinjiwvts_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @var      string    $plugin_name       The name of this plugin.
+	 * @var      string    $plugin_slug       The name of this plugin.
 	 * @var      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $plugin_slug, $version ) {
 
-		$this->plugin_name = $plugin_name;
+		$this->plugin_slug = $plugin_slug;
 		$this->version = $version;
+		$this->modes = array( 'Show', 'Hide' );
+		$this->names_widget_boundaries = array( 'start', 'end' );
+		$this->weekdays = array(
+			'Monday'	=> 1,
+			'Tuesday'	=> 2,
+			'Wednesday'	=> 3,
+			'Thursday'	=> 4,
+			'Friday'	=> 5,
+			'Saturday'	=> 6,
+			'Sunday'	=> 7 
+		);
 
 		// set current date and time vars
 		$timestamp = current_time( 'timestamp' ); // get current local blog timestamp
-		$this->yy = idate( 'Y', $timestamp ); // get year as integer, 4 digits
-		$this->mm = idate( 'm', $timestamp ); // get month number as integer
-		$this->dd = idate( 'd', $timestamp ); // get day number as integer
-		$this->hh = idate( 'H', $timestamp ); // get hour as integer, 24 hour format
-		$this->mn = idate( 'i', $timestamp ); // get minute as integer
-		$this->ss = 0; // set seconds to zero
+		$this->current_yy = idate( 'Y', $timestamp ); // get year as integer, 4 digits
+		$this->current_mm = idate( 'm', $timestamp ); // get month number as integer
+		$this->current_dd = idate( 'd', $timestamp ); // get day number as integer
+		$this->current_hh = idate( 'H', $timestamp ); // get hour as integer, 24 hour format
+		$this->current_mn = idate( 'i', $timestamp ); // get minute as integer
+		$this->current_ss = 0; // set seconds to zero
 		
 		// not in use, just for the po-editor to display the translation on the plugins overview list
-		$foo = __( 'Control the visibility of each widget based on date, time and weekday easily.', 'hinjiwvts' );
+		$foo = __( 'Control the visibility of each widget based on date, time and weekday easily.', $this->plugin_slug );
 
 	}
 
@@ -136,7 +183,11 @@ class Hinjiwvts_Admin {
 	 */
 	public function enqueue_styles() {
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/hinjiwvts-admin.css', array(), $this->version, 'all' );
+		if( is_rtl() ) {
+			wp_enqueue_style( $this->plugin_slug, plugin_dir_url( __FILE__ ) . 'css/hinjiwvts-admin-rtl.css', array(), $this->version, 'all' );
+		} else {
+			wp_enqueue_style( $this->plugin_slug, plugin_dir_url( __FILE__ ) . 'css/hinjiwvts-admin.css', array(), $this->version, 'all' );
+		}
 
 	}
 
@@ -149,7 +200,7 @@ class Hinjiwvts_Admin {
 		$url  = admin_url( 'widgets.php' );
 		$text = 'Widgets';
 		$link = sprintf( '<a href="%s">%s</a>', $url, __( $text ) );
-		$msg  = sprintf( __( 'Welcome to Widget Visibility Time Scheduler! You can set the time based visibility in each widget on the page %s.', 'hinjiwvts' ), $link );
+		$msg  = sprintf( __( 'Welcome to Widget Visibility Time Scheduler! You can set the time based visibility in each widget on the page %s.', $this->plugin_slug ), $link );
 		$html = sprintf( '<div class="updated"><p>%s</p></div>', $msg );
 		print $html;
 	}
@@ -166,43 +217,65 @@ class Hinjiwvts_Admin {
 		$this->field_ids = array();
 		$this->scheduler = array();
 
-		// prepare html elements ids
+		// prepare html elements ids for widget start and end time
 		foreach( array( 'yy', 'mm', 'dd', 'hh', 'mn', 'ss' ) as $field_name ) {
-			foreach( array( 'start', 'end' ) as $boundary ) {
+			foreach( $this->names_widget_boundaries as $boundary ) {
 				$name = $boundary . '-' . $field_name;
 				$this->field_ids[ $name ] = $widget->get_field_id( $name );
 			}
 		}
 
 		// check and sanitize stored settings; if not set: set them to current time
-		if ( isset( $widget_settings[ 'hinjiwvts' ] ) ) {
-			$this->scheduler = $widget_settings[ 'hinjiwvts' ];
+		if ( isset( $widget_settings[ $this->plugin_slug ] ) ) {
+			$this->scheduler = $widget_settings[ $this->plugin_slug ];
 		}
 
+		/* deprecated since v4.0:
 		// scheduler status
 		if ( isset( $this->scheduler[ 'is_active' ] ) ) {
 			$this->scheduler[ 'is_active' ] = 1;
 		} else {
 			$this->scheduler[ 'is_active' ] = 0;
 		}
+		*/
 
+		/* deprecated since v4.0:
 		// action status
 		if ( isset( $this->scheduler[ 'is_opposite' ] ) ) {
 			$this->scheduler[ 'is_opposite' ] = 1;
 		} else {
 			$this->scheduler[ 'is_opposite' ] = 0;
 		}
+		*/
 		
+		/* deprecated since v4.0:
 		// infinite end
 		if ( isset( $this->scheduler[ 'end_infinite' ] ) ) {
 			$this->scheduler[ 'end_infinite' ] = 1;
 		} else {
 			$this->scheduler[ 'end_infinite' ] = 0;
 		}
+		*/
+		
+		// modes
+		if ( isset( $this->scheduler[ 'mode' ] ) and in_array( $this->scheduler[ 'mode' ], $this->modes ) ) {
+			// pass
+		} else {
+			$this->scheduler[ 'mode' ] = '';
+		}
+		// convert from plugin version < 4.0
+		if ( isset( $this->scheduler[ 'is_active' ] ) ) {
+			$this->scheduler[ 'mode' ] = $this->modes[ 0 ]; // mode = show
+			unset( $this->scheduler[ 'is_active' ] );
+			if ( isset( $this->scheduler[ 'is_opposite' ] ) ) {
+				$this->scheduler[ 'mode' ] = $this->modes[ 1 ]; // mode = hide
+				unset( $this->scheduler[ 'is_opposite' ] );
+			}
+		}
 
-		// start and end time
+		// start and end times
 		if ( isset( $this->scheduler[ 'timestamps' ] ) ) {
-			foreach( array( 'start', 'end' ) as $boundary ) {
+			foreach( $this->names_widget_boundaries as $boundary ) {
 				if ( isset( $this->scheduler[ 'timestamps' ][ $boundary ] ) ) {
 					$timestamp = (int) $this->scheduler[ 'timestamps' ][ $boundary ]; // get stored Unix timestamp
 				} else {
@@ -216,7 +289,7 @@ class Hinjiwvts_Admin {
 			}
 		} else {
 			$timestamp = current_time( 'timestamp' ); // get current local blog timestamp
-			foreach( array( 'start', 'end' ) as $boundary ) {
+			foreach( $this->names_widget_boundaries as $boundary ) {
 				$this->scheduler[ $boundary . '-yy' ] = idate( 'Y', $timestamp ); // get year as integer, 4 digits
 				$this->scheduler[ $boundary . '-mm' ] = idate( 'm', $timestamp ); // get month number as integer
 				$this->scheduler[ $boundary . '-dd' ] = idate( 'd', $timestamp ); // get day number as integer
@@ -225,15 +298,6 @@ class Hinjiwvts_Admin {
 			}
 		}
 		
-		// if endless set the highest possible values for the end date and time
-		if ( 1 == $this->scheduler[ 'end_infinite' ] ) {
-			$this->scheduler[ 'end-yy' ] = 2037;
-			$this->scheduler[ 'end-mm' ] = 12;
-			$this->scheduler[ 'end-dd' ] = 31;
-			$this->scheduler[ 'end-hh' ] = 23;
-			$this->scheduler[ 'end-mn' ] = 59;
-		}
-
 		// weekdays
 		if ( isset( $this->scheduler[ 'daysofweek' ] ) ) {
 			$sanitized_daysofweek = array_map( 'absint', $this->scheduler[ 'daysofweek' ] ); // convert values from string to positive integers
@@ -243,11 +307,9 @@ class Hinjiwvts_Admin {
 				}
 			}
 		} else {
-			$this->scheduler[ 'daysofweek' ] = array();
+			// default: all checked
+			$this->scheduler[ 'daysofweek' ] = range( 1, 7 );
 		}
-
-		// set weekdays for output
-		$daysofweek = array( 'Monday' => 1, 'Tuesday' => 2, 'Wednesday' => 3, 'Thursday' => 4, 'Friday' => 5, 'Saturday' => 6, 'Sunday' => 7 );
 
 		// print additional input fields in widget
 		include 'partials/hinjiwvts-fieldsets.php';
@@ -273,13 +335,24 @@ class Hinjiwvts_Admin {
 		//  month
 		$label = 'Month';
 		$name = $boundary . '-mm';
-		$var = isset( $this->scheduler[ $name ] ) ? absint( $this->scheduler[ $name ] ) : $this->mm;
-		$hinjiwvts[ $name ] = ( 1 <= $var and $var <= 12 ) ? zeroise( $var, 2 ) : zeroise( $this->mm, 2 );
-		$month = sprintf( '<label for="%s" class="screen-reader-text">%s</label><select id="%s" name="hinjiwvts[%s]">', $this->field_ids[ $name ], __( $label ), $this->field_ids[ $name ], $name );
+		$var = isset( $this->scheduler[ $name ] ) ? absint( $this->scheduler[ $name ] ) : $this->current_mm;
+		$values[ $name ] = ( 1 <= $var and $var <= 12 ) ? zeroise( $var, 2 ) : zeroise( $this->current_mm, 2 );
+		$month = sprintf(
+			'<label for="%s" class="screen-reader-text">%s</label><select id="%s" name="%s[%s]">',
+			$this->field_ids[ $name ],
+			__( $label ),
+			$this->field_ids[ $name ],
+			$this->plugin_slug,
+			$name 
+		);
 		$label = '%1$s-%2$s';
 		for ( $i = 1; $i < 13; $i = $i +1 ) {
 			$monthnum = zeroise($i, 2); // add leading zero for values < 10
-			$month .= sprintf( '<option value="%s" %s>', $monthnum, selected( $monthnum, $hinjiwvts[ $name ], false ) );
+			$month .= sprintf(
+				'<option value="%s" %s>',
+				$monthnum,
+				selected( $monthnum, $values[ $name ], false ) 
+			);
 			/* translators: 1: month number (01, 02, etc.), 2: month abbreviation */
 			$month .= sprintf( __( $label ), $monthnum, $wp_locale->get_month_abbrev( $wp_locale->get_month( $i ) ) ) . '</option>';
 		}
@@ -288,30 +361,62 @@ class Hinjiwvts_Admin {
 		//  year
 		$label = 'Year';
 		$name = $boundary . '-yy';
-		$var = isset( $this->scheduler[ $name ] ) ? absint( $this->scheduler[ $name ] ) : $this->yy;
-		$hinjiwvts[ $name ] = ( 1970 <= $var and $var <= 2037 ) ? strval( $var ) : zeroise( $this->yy, 2 );
-		$year   = sprintf( '<label for="%s" class="screen-reader-text">%s</label><input type="text" id="%s" name="hinjiwvts[%s]" value="%s" size="4" maxlength="4" autocomplete="off" />', $this->field_ids[ $name ], __( $label ), $this->field_ids[ $name ], $name, $hinjiwvts[ $name ] );
+		$var = isset( $this->scheduler[ $name ] ) ? absint( $this->scheduler[ $name ] ) : $this->current_yy;
+		$values[ $name ] = ( 1970 <= $var and $var <= 2037 ) ? strval( $var ) : zeroise( $this->current_yy, 2 );
+		$year   = sprintf(
+			'<label for="%s" class="screen-reader-text">%s</label><input type="text" id="%s" name="%s[%s]" value="%s" size="4" maxlength="4" autocomplete="off" />',
+			$this->field_ids[ $name ],
+			__( $label ),
+			$this->field_ids[ $name ],
+			$this->plugin_slug,
+			$name,
+			$values[ $name ] 
+		);
 
 		//  day
 		$label = 'Day';
 		$name = $boundary . '-dd';
-		$var = isset( $this->scheduler[ $name ] ) ? absint( $this->scheduler[ $name ] ) : $this->dd;
-		$hinjiwvts[ $name ] = ( 1 <= $var and $var <= 31 ) ? zeroise( $var, 2 ) : zeroise( $this->dd, 2 );
-		$day = sprintf( '<label for="%s" class="screen-reader-text">%s</label><input type="text" id="%s" name="hinjiwvts[%s]" value="%s" size="2" maxlength="2" autocomplete="off" />', $this->field_ids[ $name ], __( $label ), $this->field_ids[ $name ], $name, $hinjiwvts[ $name ] );
+		$var = isset( $this->scheduler[ $name ] ) ? absint( $this->scheduler[ $name ] ) : $this->current_dd;
+		$values[ $name ] = ( 1 <= $var and $var <= 31 ) ? zeroise( $var, 2 ) : zeroise( $this->current_dd, 2 );
+		$day = sprintf(
+			'<label for="%s" class="screen-reader-text">%s</label><input type="text" id="%s" name="%s[%s]" value="%s" size="2" maxlength="2" autocomplete="off" />',
+			$this->field_ids[ $name ],
+			__( $label ),
+			$this->field_ids[ $name ],
+			$this->plugin_slug,
+			$name,
+			$values[ $name ] 
+		);
 
 		//  hour
 		$label = 'Hour';
 		$name = $boundary . '-hh';
-		$var = isset( $this->scheduler[ $name ] ) ? absint( $this->scheduler[ $name ] ) : $this->hh;
-		$hinjiwvts[ $name ] = ( 0 <= $var and $var <= 23 ) ? zeroise( $var, 2 ) : zeroise( $this->hh, 2 );
-		$hour = sprintf( '<label for="%s" class="screen-reader-text">%s</label><input type="text" id="%s" name="hinjiwvts[%s]" value="%s" size="2" maxlength="2" autocomplete="off" />', $this->field_ids[ $name ], __( $label ), $this->field_ids[ $name ], $name, $hinjiwvts[ $name ] );
+		$var = isset( $this->scheduler[ $name ] ) ? absint( $this->scheduler[ $name ] ) : $this->current_hh;
+		$values[ $name ] = ( 0 <= $var and $var <= 23 ) ? zeroise( $var, 2 ) : zeroise( $this->current_hh, 2 );
+		$hour = sprintf(
+			'<label for="%s" class="screen-reader-text">%s</label><input type="text" id="%s" name="%s[%s]" value="%s" size="2" maxlength="2" autocomplete="off" />',
+			$this->field_ids[ $name ],
+			__( $label ),
+			$this->field_ids[ $name ],
+			$this->plugin_slug,
+			$name,
+			$values[ $name ] 
+		);
 
 		//  minute
 		$label = 'Minute';
 		$name = $boundary . '-mn';
-		$var = isset( $this->scheduler[ $name ] ) ? absint( $this->scheduler[ $name ] ) : $this->mn;
-		$hinjiwvts[ $name ] = ( 0 <= $var and $var <= 59 ) ? zeroise( $var, 2 ) : zeroise( $this->mn, 2 );
-		$minute = sprintf( '<label for="%s" class="screen-reader-text">%s</label><input type="text" id="%s" name="hinjiwvts[%s]" value="%s" size="2" maxlength="2" autocomplete="off" />', $this->field_ids[ $name ], __( $label ), $this->field_ids[ $name ], $name, $hinjiwvts[ $name ] );
+		$var = isset( $this->scheduler[ $name ] ) ? absint( $this->scheduler[ $name ] ) : $this->current_mn;
+		$values[ $name ] = ( 0 <= $var and $var <= 59 ) ? zeroise( $var, 2 ) : zeroise( $this->current_mn, 2 );
+		$minute = sprintf(
+			'<label for="%s" class="screen-reader-text">%s</label><input type="text" id="%s" name="%s[%s]" value="%s" size="2" maxlength="2" autocomplete="off" />',
+			$this->field_ids[ $name ],
+			__( $label ),
+			$this->field_ids[ $name ],
+			$this->plugin_slug,
+			$name,
+			$values[ $name ] 
+		);
 
 		/* translators: 1: month, 2: day, 3: year, 4: hour, 5: minute */
 		$label = '%1$s %2$s, %3$s @ %4$s : %5$s';
@@ -319,7 +424,12 @@ class Hinjiwvts_Admin {
 
 		//  seconds
 		$name = $boundary . '-ss';
-		printf( '<input type="hidden" id="%s" name="hinjiwvts[%s]" value="00" maxlength="2" />', $this->field_ids[ $name ], $name ) . "\n";
+		printf( 
+			'<input type="hidden" id="%s" name="%s[%s]" value="00" maxlength="2" />',
+			$this->field_ids[ $name ],
+			$this->plugin_slug,
+			$name 
+		) . "\n";
 
 	}
 	
@@ -334,20 +444,24 @@ class Hinjiwvts_Admin {
 		
 		$datetime = array();
 		$scheduler = array();
+		$plugin_slug = 'hinjiwvts';
 		
 		// sanitize user input
 
 		// if neither activated nor weekday checked, save time and quit now without settings
-		if ( ! isset( $_POST[ 'hinjiwvts' ][ 'is_active' ] ) or ! isset( $_POST[ 'hinjiwvts' ][ 'daysofweek' ] ) ) {
+		/* deprecated since v4.0:
+		if ( ! isset( $_POST[ $plugin_slug ][ 'is_active' ] ) or ! isset( $_POST[ $plugin_slug ][ 'daysofweek' ] ) ) {
+		*/
+		if ( empty( $_POST[ $plugin_slug ][ 'mode' ] ) ) {
 			// if former settings are in the widget_settings: delete them
-			if ( isset( $widget_settings[ 'hinjiwvts' ] ) ) {
-				unset( $widget_settings[ 'hinjiwvts' ] );
+			if ( isset( $widget_settings[ $plugin_slug ] ) ) {
+				unset( $widget_settings[ $plugin_slug ] );
 			}
 			return $widget_settings;
 		}
 		
 		// get weekdays values
-		$sanitized_daysofweek = array_map( 'absint', $_POST[ 'hinjiwvts' ][ 'daysofweek' ] ); // convert values from string to positive integers
+		$sanitized_daysofweek = array_map( 'absint', $_POST[ $plugin_slug ][ 'daysofweek' ] ); // convert values from string to positive integers
 		$scheduler[ 'daysofweek' ] = array();
 		foreach ( range( 1, 7 ) as $dayofweek ) {
 			if ( in_array( $dayofweek, $sanitized_daysofweek ) ) {
@@ -356,57 +470,66 @@ class Hinjiwvts_Admin {
 		}
 		// if no valid weekday given, save time and quit now without settings
 		if ( empty( $scheduler[ 'daysofweek' ]) ) {
-			if ( isset( $widget_settings[ 'hinjiwvts' ] ) ) {
-				unset( $widget_settings[ 'hinjiwvts' ] );
+			if ( isset( $widget_settings[ $plugin_slug ] ) ) {
+				unset( $widget_settings[ $plugin_slug ] );
 			}
 			return $widget_settings;
 		}
 
+		/* deprecated since v4.0:
 		// set active status
 		$scheduler[ 'is_active' ] = 1;
+		*/
 		
 		// set widget action: show / hide ?
-		if ( isset( $_POST[ 'hinjiwvts' ][ 'is_opposite' ] ) ) {
+		/* deprecated since v4.0:
+		if ( isset( $_POST[ $plugin_slug ][ 'is_opposite' ] ) ) {
 			$scheduler[ 'is_opposite' ] = 1;
 		}
+		*/
+		if ( isset( $_POST[ $plugin_slug ][ 'mode' ] ) and in_array( $_POST[ $plugin_slug ][ 'mode' ], array( 'Show', 'Hide' ) ) ) {
+			$scheduler[ 'mode' ] = $_POST[ $plugin_slug ][ 'mode' ];
+		}
 
+		/* deprecated since v4.0:
 		// if neither activated nor weekday checked, save time and quit now without settings
-		if ( isset( $_POST[ 'hinjiwvts' ][ 'end_infinite' ] ) ) {
+		if ( isset( $_POST[ $plugin_slug ][ 'end_infinite' ] ) ) {
 			$scheduler[ 'end_infinite' ] = 1;
 		}
+		*/
 
 		// set current date and time vars
 		// (neccessary to write it once more instead of re-use $this->xx because we are here in a non-object context)
 		$timestamp = current_time( 'timestamp' ); // get current local blog timestamp
-		$yy = idate( 'Y', $timestamp ); // get year as integer, 4 digits
-		$mm = idate( 'm', $timestamp ); // get month number as integer
-		$dd = idate( 'd', $timestamp ); // get day number as integer
-		$hh = idate( 'H', $timestamp ); // get hour as integer, 24 hour format
-		$mn = idate( 'i', $timestamp ); // get minute as integer
-		$ss = 0; // set seconds to zero
+		$current_yy = idate( 'Y', $timestamp ); // get year as integer, 4 digits
+		$current_mm = idate( 'm', $timestamp ); // get month number as integer
+		$current_dd = idate( 'd', $timestamp ); // get day number as integer
+		$current_hh = idate( 'H', $timestamp ); // get hour as integer, 24 hour format
+		$current_mn = idate( 'i', $timestamp ); // get minute as integer
+		$current_ss = 0; // set seconds to zero
 
-		// set timestamps of start and end
+		// set timestamps of widget start and end
 		foreach( array( 'start', 'end' ) as $boundary ) {
 			// year
 			$name = $boundary . '-yy';
-			$var = isset( $_POST[ 'hinjiwvts' ][ $name ] ) ? absint( $_POST[ 'hinjiwvts' ][ $name ] ) : $yy;
-			$datetime[ $name ] = ( 1970 <= $var and $var <= 2037 ) ? $var : $yy;
+			$var = isset( $_POST[ $plugin_slug ][ $name ] ) ? absint( $_POST[ $plugin_slug ][ $name ] ) : $current_yy;
+			$datetime[ $name ] = ( 1970 <= $var and $var <= 2037 ) ? $var : $current_yy;
 			// month
 			$name = $boundary . '-mm';
-			$var = isset( $_POST[ 'hinjiwvts' ][ $name ] ) ? absint( $_POST[ 'hinjiwvts' ][ $name ] ) : $mm;
-			$datetime[ $name ] = ( 1 <= $var and $var <= 12 ) ? $var : $mm;
+			$var = isset( $_POST[ $plugin_slug ][ $name ] ) ? absint( $_POST[ $plugin_slug ][ $name ] ) : $current_mm;
+			$datetime[ $name ] = ( 1 <= $var and $var <= 12 ) ? $var : $current_mm;
 			// day
 			$name = $boundary . '-dd';
-			$var = isset( $_POST[ 'hinjiwvts' ][ $name ] ) ? absint( $_POST[ 'hinjiwvts' ][ $name ] ) : $dd;
-			$datetime[ $name ] = ( 1 <= $var and $var <= 31 ) ? $var : $dd;
+			$var = isset( $_POST[ $plugin_slug ][ $name ] ) ? absint( $_POST[ $plugin_slug ][ $name ] ) : $current_dd;
+			$datetime[ $name ] = ( 1 <= $var and $var <= 31 ) ? $var : $current_dd;
 			// hour
 			$name = $boundary . '-hh';
-			$var = isset( $_POST[ 'hinjiwvts' ][ $name ] ) ? absint( $_POST[ 'hinjiwvts' ][ $name ] ) : $hh;
-			$datetime[ $name ] = ( 0 <= $var and $var <= 23 ) ? $var : $hh;
+			$var = isset( $_POST[ $plugin_slug ][ $name ] ) ? absint( $_POST[ $plugin_slug ][ $name ] ) : $current_hh;
+			$datetime[ $name ] = ( 0 <= $var and $var <= 23 ) ? $var : $current_hh;
 			// minute
 			$name = $boundary . '-mn';
-			$var = isset( $_POST[ 'hinjiwvts' ][ $name ] ) ? absint( $_POST[ 'hinjiwvts' ][ $name ] ) : $mn;
-			$datetime[ $name ] = ( 0 <= $var and $var <= 59 ) ? $var : $mn;
+			$var = isset( $_POST[ $plugin_slug ][ $name ] ) ? absint( $_POST[ $plugin_slug ][ $name ] ) : $current_mn;
+			$datetime[ $name ] = ( 0 <= $var and $var <= 59 ) ? $var : $current_mn;
 			// second
 			$name = $boundary . '-ss';
 			$datetime[ $name ] = 0;
@@ -421,8 +544,17 @@ class Hinjiwvts_Admin {
 			);
 		}
 
+		// if too high year set the highest possible values for the end date and time
+		$name = 'end-yy';
+		$var = isset( $_POST[ $plugin_slug ][ $name ] ) ? absint( $_POST[ $plugin_slug ][ $name ] ) : $current_yy;
+		if ( 2037 < $var ) {
+			$scheduler[ 'timestamps' ][ 'end' ] = mktime( 23, 59, 59, 12, 31, 2037 );
+			// store the flag into the db to trigger the display of a message after activation
+			set_transient( $plugin_slug, '1', 60 );
+		}
+
 		// return sanitized user settings
-		$widget_settings[ 'hinjiwvts' ] = $scheduler;
+		$widget_settings[ $plugin_slug ] = $scheduler;
 		return $widget_settings;
 	}
 

@@ -2,8 +2,8 @@
 Contributors: Hinjiriyo
 Tags: brazilian, control, date, day, deutsch, display, español, farsi, forever, future, hide, hour, jetpack, minute, month, period, persian, plan, português do brasil, portuguese, schedule, scheduler, show, time, unlimited, visibility, weekdays, widget, widgets, year
 Requires at least: 3.5
-Tested up to: 4.2.2
-Stable tag: 3.1
+Tested up to: 4.2.4
+Stable tag: 4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,6 +14,10 @@ Control the visibility of each widget based on date, time and weekday easily.
 = Show and hide widgets within a desired period and at given weekdays =
 
 The Widget Visibility Time Scheduler enables you to set the period and weekdays of the visibility of each widget easily. You can set to show or to hide the widget during schedule. It is available in english, german, spanish, brazilian portuguese and persian language.
+
+= Daytime version available =
+
+If you want to schedule the visibility based on the daytime of each weekday please contact the author at m.stehle@gmx.de and ask for the premium version of the plugin.
 
 = What users said =
 
@@ -78,6 +82,10 @@ No. This plugin has no site effects to cache plugins. So it can happen that a ca
 
 It is up to your cache settings how the visibility of a widget is considered. Maybe it is helpful to empty the cache automatically once a day.
 
+= How can I set the daytime for each weekday? =
+
+Purchase the Pro version of that plugin. That version is like the free plugin version, enhanced with the ability to schedule the visibility based on the time of each weekday. The Pro version is also available in german, spanish, brazilian portuguese and persian. Please contact the author at m.stehle@gmx.de for more informations about the Pro version.
+
 = Does removing the plugin delete the settings in the database? =
 
 Up to now: no. But you can remove the settings in the database easily with two possibilities:
@@ -115,16 +123,26 @@ If you want to contribute a translation of the plugin in your language it would 
 
 == Screenshots ==
 
-1. You see the english interface of the Widget Visibility Time Scheduler in the Archive Widget. These fields appear in each other widget.
-2. German interface of the Widget Visibility Time Scheduler in the Archive Widget
-3. Spanish interface of the Widget Visibility Time Scheduler in the Archive Widget
-4. Brazilian portuguese interface of the Widget Visibility Time Scheduler in the Archive Widget
-5. Persian (farsi) interface of the Widget Visibility Time Scheduler in the Archive Widget
+1. English interface of the premium plugin Widget Visibility Time Scheduler Pro in the Search Widget
+2. German interface of the Widget Visibility Time Scheduler in the Search Widget
+3. Spanish interface of the Widget Visibility Time Scheduler in the Search Widget
+4. Brazilian portuguese interface of the Widget Visibility Time Scheduler in the Search Widget
+5. Persian (farsi) interface of the Widget Visibility Time Scheduler in the Search Widget
 
 == Changelog ==
 
+= 4.0 =
+* Changed: Simplified interface; your former settings will be adopted
+* Changed: If not changed formerly all weekdays are checked by default
+* Added styles for right-to-left languages
+* Added styles for widget form in WP customizer
+* Added in readme.txt: screenshot and informations about the premium version for scheduling based on daytime
+* Updated screenshots
+* Updated *.pot file and translations
+
 = 3.1 =
 * Added persian translation (Farsi). Thank you very much [Sajjad Panahi](https://wordpress.org/support/profile/asreelm)
+* Added screenshot of widget in persian language
 * Fixed typo in german translation
 
 = 3.0 =
@@ -167,8 +185,11 @@ Successfully tested with WordPress 4.1
 
 == Upgrade Notice ==
 
+= 4.0 =
+Simplified interface, weekdays are set by default
+
 = 3.1 =
-Fixed typo in german translation
+Added persian (Farsi) translation
 
 = 3.0 =
 Added inversed action option

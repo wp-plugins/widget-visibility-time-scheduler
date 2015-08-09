@@ -1,0 +1,22 @@
+div.hinjiwvts-container p {
+	margin-top: 0;
+	overflow: hidden;
+}
+div.hinjiwvts-container fieldset legend {
+	padding: 0;
+	font-weight: bold;
+}
+div.hinjiwvts-container br {
+    display: none;
+}
+span.hinjiwvts-weekday {
+    display: block;
+    float: right;
+    width: 120px;
+}
+span.hinjiwvts-daytime {
+    display: block;
+    float: right;
+    /*text-align: right;*/
+    width: 270px;
+}
