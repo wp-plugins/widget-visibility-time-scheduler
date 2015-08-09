@@ -5,28 +5,28 @@ msgstr ""
 "Project-Id-Version: Widget Visibility Time Scheduler\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/plugins/widget-visibility-time-"
 "scheduler\n"
-"POT-Creation-Date: 2015-04-13 15:17+0100\n"
-"PO-Revision-Date: 2015-06-06 17:03+0100\n"
+"POT-Creation-Date: 2015-08-04 01:13+0200\n"
+"PO-Revision-Date: 2015-08-04 01:13+0200\n"
 "Last-Translator: Martin Stehle <m.stehle@gmx.de>\n"
 "Language-Team: m.stehle@gmx.de\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.3\n"
 "X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;"
 "esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
-"X-Poedit-Basepath: ../\n"
+"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class-hinjiwvts-admin.php:128
+#: admin/class-hinjiwvts-admin.php:140
 msgid ""
 "Control the visibility of each widget based on date, time and weekday easily."
 msgstr ""
 "Regelt die Sichtbarkeit jedes Widgets nach Datum, Uhrzeit und Wochentag."
 
-#: admin/class-hinjiwvts-admin.php:152
+#: admin/class-hinjiwvts-admin.php:168
 #, php-format
 msgid ""
 "Welcome to Widget Visibility Time Scheduler! You can set the time based "
@@ -39,34 +39,15 @@ msgstr ""
 msgid "Visibility Time Scheduler"
 msgstr "Sichtbarkeitszeitplaner"
 
-#: admin/partials/hinjiwvts-fieldsets.php:22
-msgid "Show widget within the given period only?"
-msgstr "Zeige Widget nur im angegebenen Zeitraum?"
+#: admin/partials/hinjiwvts-fieldsets.php:34
+msgid "from"
+msgstr "von"
 
-#: admin/partials/hinjiwvts-fieldsets.php:27
-msgid "Opposed action: Hide the widget during schedule, else show it?"
-msgstr ""
-"Gegensätzliche Aktion: Widget während der geplanten Zeit verstecken statt "
-"anzeigen?"
+#: admin/partials/hinjiwvts-fieldsets.php:38
+msgid "to"
+msgstr "bis"
 
-#: admin/partials/hinjiwvts-fieldsets.php:29
-#, php-format
-msgid "The timezone as set in %s takes effect."
-msgstr "Es gilt die Zeitzone wie unter %s eingestellt."
-
-#: admin/partials/hinjiwvts-fieldsets.php:31
-msgid "Start time of widget visibility"
-msgstr "Startzeitpunkt der Sichtbarkeit des Widgets"
-
-#: admin/partials/hinjiwvts-fieldsets.php:35
-msgid "End time of widget visibility"
-msgstr "Endzeitpunkt der Sichtbarkeit des Widgets"
-
-#: admin/partials/hinjiwvts-fieldsets.php:40
-msgid "Show widget for an unlimited time?"
-msgstr "Zeige das Widget unbegrenzt lange an?"
-
-#: admin/partials/hinjiwvts-fieldsets.php:42
+#: admin/partials/hinjiwvts-fieldsets.php:41
 msgid ""
 "Why only up to end of 2037? Read <a href=\"http://en.wikipedia.org/wiki/"
 "Year_2038_problem\" lang=\"en\">Wikipedia: Year 2038 problem</a>."
@@ -74,10 +55,32 @@ msgstr ""
 "Warum nur bis Ende 2037? Lese <a href=\"http://de.wikipedia.org/wiki/"
 "Jahr-2038-Problem\" lang=\"de\">Wikipedia: Jahr-2038-Problem</a>."
 
-#: admin/partials/hinjiwvts-fieldsets.php:45
-msgid "Weekdays of widget visibility"
-msgstr "Wochentage der Sichtbarkeit des Widgets"
+#: admin/partials/hinjiwvts-fieldsets.php:44
+msgid "on"
+msgstr "am"
 
-#: admin/partials/hinjiwvts-fieldsets.php:46
-msgid "Check at least one weekday to activate the scheduler."
-msgstr "Wähle mindestens einen Wochentag, um den Zeitplaner zu aktivieren."
+#~ msgid "Show widget within the given period only?"
+#~ msgstr "Zeige Widget nur im angegebenen Zeitraum?"
+
+#~ msgid "Opposed action: Hide the widget during schedule, else show it?"
+#~ msgstr ""
+#~ "Gegensätzliche Aktion: Widget während der geplanten Zeit verstecken statt "
+#~ "anzeigen?"
+
+#~ msgid "The timezone as set in %s takes effect."
+#~ msgstr "Es gilt die Zeitzone wie unter %s eingestellt."
+
+#~ msgid "Start time of widget visibility"
+#~ msgstr "Startzeitpunkt der Sichtbarkeit des Widgets"
+
+#~ msgid "End time of widget visibility"
+#~ msgstr "Endzeitpunkt der Sichtbarkeit des Widgets"
+
+#~ msgid "Show widget for an unlimited time?"
+#~ msgstr "Zeige das Widget unbegrenzt lange an?"
+
+#~ msgid "Weekdays of widget visibility"
+#~ msgstr "Wochentage der Sichtbarkeit des Widgets"
+
+#~ msgid "Check at least one weekday to activate the scheduler."
+#~ msgstr "Wähle mindestens einen Wochentag, um den Zeitplaner zu aktivieren."

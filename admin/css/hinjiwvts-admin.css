@@ -5,3 +5,9 @@ div.hinji-visibility-time-scheduler fieldset legend {
 	padding: 0;
 	font-weight: bold;
 }
+.customize-control .hinji-visibility-time-scheduler input {
+	width: auto;
+}
+.customize-control .hinji-visibility-time-scheduler select {
+	min-width: 0;
+}

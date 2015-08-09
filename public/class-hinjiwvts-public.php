@@ -23,13 +23,13 @@
 class Hinjiwvts_Public {
 
 	/**
-	 * The ID of this plugin.
+	 * The slug of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $hinjiwvts    The ID of this plugin.
+	 * @var      string    $plugin_slug    The slug of this plugin.
 	 */
-	private $hinjiwvts;
+	private $plugin_slug;
 
 	/**
 	 * The version of this plugin.
@@ -47,9 +47,9 @@ class Hinjiwvts_Public {
 	 * @var      string    $hinjiwvts       The name of the plugin.
 	 * @var      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $plugin_slug, $version ) {
 
-		$this->hinjiwvts = $plugin_name;
+		$this->plugin_slug = $plugin_slug;
 		$this->version = $version;
 
 	}
@@ -63,28 +63,38 @@ class Hinjiwvts_Public {
 	 */
 	public static function filter_widget( $widget_settings ) {
 
-		// return (= show widget) if no stored settings for this plugin
-		if ( ! isset( $widget_settings['hinjiwvts'] ) ) return $widget_settings;
-		if ( ! isset( $widget_settings['hinjiwvts']['timestamps'] ) ) return $widget_settings;
-		if ( ! isset( $widget_settings['hinjiwvts']['timestamps']['start'] ) ) return $widget_settings;
-		if ( ! isset( $widget_settings['hinjiwvts']['timestamps']['end'] ) ) return $widget_settings;
-		if ( ! isset( $widget_settings['hinjiwvts']['daysofweek'] ) ) return $widget_settings;
+		$plugin_slug = 'hinjiwvts';
 
-		$current_time = current_time( 'timestamp' ); // get current local blog timestamp
-		$current_dayofweek = (int) date( 'N', $current_time ); // get ISO-8601 numeric representation of the day of the week; 1 (for Monday) through 7 (for Sunday)
+		// return (= show widget) if no stored settings for this plugin
+		if ( ! isset( $widget_settings[ $plugin_slug ] ) ) return $widget_settings;
+		if ( ! isset( $widget_settings[ $plugin_slug ][ 'timestamps' ] ) ) return $widget_settings;
+		if ( ! isset( $widget_settings[ $plugin_slug ][ 'timestamps' ][ 'start' ] ) ) return $widget_settings;
+		if ( ! isset( $widget_settings[ $plugin_slug ][ 'timestamps' ][ 'end' ] ) ) return $widget_settings;
+		if ( ! isset( $widget_settings[ $plugin_slug ][ 'daysofweek' ] ) ) return $widget_settings;
+
+		$current_timestamp = (int) current_time( 'timestamp' ); // get current local blog timestamp
+		$current_day_num = (int) date( 'N', $current_timestamp ); // get ISO-8601 numeric representation of the day of the week; 1 (for Monday) through 7 (for Sunday)
 		
 		// get and sanitize stored settings
-		$start_time  = (int) $widget_settings['hinjiwvts']['timestamps']['start'];
-		$end_time    = (int) $widget_settings['hinjiwvts']['timestamps']['end'];
-		$is_opposite = ( isset( $widget_settings['hinjiwvts']['is_opposite'] ) ) ? true : false;
-		
+		$widget_start_time  = (int) $widget_settings[ $plugin_slug ][ 'timestamps' ][ 'start' ];
+		$widget_end_time    = (int) $widget_settings[ $plugin_slug ][ 'timestamps' ][ 'end' ];
+		// convert from plugin version < 4.0
+		$is_opposite = false;
+		if ( isset( $widget_settings[ $plugin_slug ][ 'is_opposite' ] ) ) {
+			$is_opposite = true;
+		}
+		// since 4.0
+		if ( isset( $widget_settings[ $plugin_slug ][ 'mode' ] ) ) {
+			$is_opposite = ( 'Hide' == $widget_settings[ $plugin_slug ][ 'mode' ] ) ? true : false;
+		}
+
 		// if current time is between required timepoints and is required day of week
-		if ( $start_time <= $current_time and $current_time <= $end_time and in_array( $current_dayofweek, $widget_settings['hinjiwvts']['daysofweek'] ) ) {
+		if ( $widget_start_time <= $current_timestamp
+			and $current_timestamp <= $widget_end_time
+			and in_array( $current_day_num, $widget_settings[ $plugin_slug ][ 'daysofweek' ] ) ) {
 			return ( $is_opposite ) ? false : $widget_settings; // if functioning opposite hide widget else show widget
 		} else {
 			return ( $is_opposite ) ? $widget_settings : false; // if functioning opposite show widget else hide widget
 		}
-
 	}
-
 }

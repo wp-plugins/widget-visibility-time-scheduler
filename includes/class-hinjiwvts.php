@@ -40,13 +40,13 @@ class Hinjiwvts {
 	protected $loader;
 
 	/**
-	 * The unique identifier of this plugin.
+	 * The slug of this plugin.
 	 *
 	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $hinjiwvts    The string used to uniquely identify this plugin.
+	 * @access   private
+	 * @var      string    $plugin_slug    The slug of this plugin.
 	 */
-	protected $hinjiwvts;
+	private $plugin_slug;
 
 	/**
 	 * The current version of the plugin.
@@ -68,8 +68,8 @@ class Hinjiwvts {
 	 */
 	public function __construct() {
 
-		$this->hinjiwvts = 'hinjiwvts';
-		$this->version = '3.1';
+		$this->plugin_slug = 'hinjiwvts';
+		$this->version = '4.0';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -144,7 +144,7 @@ class Hinjiwvts {
 	private function set_locale() {
 
 		$plugin_i18n = new Hinjiwvts_i18n();
-		$plugin_i18n->set_domain( $this->get_hinjiwvts() );
+		$plugin_i18n->set_domain( $this->get_plugin_slug() );
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -159,7 +159,7 @@ class Hinjiwvts {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Hinjiwvts_Admin( $this->get_hinjiwvts(), $this->get_version() );
+		$plugin_admin = new Hinjiwvts_Admin( $this->get_plugin_slug(), $this->get_version() );
 
 		// load admin style sheet
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
@@ -170,9 +170,9 @@ class Hinjiwvts {
 
 		// hook on displaying a message after plugin activation
 		if ( isset( $_GET[ 'activate' ] ) or isset( $_GET[ 'activate-multi' ] ) ) {
-			if ( false !== get_transient( 'hinjiwvts' ) ) {
+			if ( false !== get_transient( $this->plugin_slug ) ) {
 				$this->loader->add_action( 'admin_notices', $plugin_admin, 'display_activation_message' );
-				delete_transient( 'hinjiwvts' );
+				delete_transient( $this->plugin_slug );
 			}
 		}
 	}
@@ -187,7 +187,7 @@ class Hinjiwvts {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Hinjiwvts_Public( $this->get_hinjiwvts(), $this->get_version() );
+		$plugin_public = new Hinjiwvts_Public( $this->get_plugin_slug(), $this->get_version() );
 		// check the visibility of each widget to display it or not
 		$this->loader->add_action( 'widget_display_callback', $plugin_public, 'filter_widget' );
 
@@ -209,8 +209,8 @@ class Hinjiwvts {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_hinjiwvts() {
-		return $this->hinjiwvts;
+	public function get_plugin_slug() {
+		return $this->plugin_slug;
 	}
 
 	/**
