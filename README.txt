@@ -2,14 +2,16 @@
 Contributors: Hinjiriyo
 Tags: brazilian, control, date, day, deutsch, display, español, farsi, forever, future, hide, hour, jetpack, minute, month, period, persian, plan, português do brasil, portuguese, schedule, scheduler, show, time, unlimited, visibility, weekdays, widget, widgets, year
 Requires at least: 3.5
-Tested up to: 4.2.4
-Stable tag: 4.0
+Tested up to: 4.3
+Stable tag: 4.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Control the visibility of each widget based on date, time and weekday easily.
 
 == Description ==
+
+The plugin is available in English, Spanish (Español), German (Deutsch), Brazilian Portuguese (Português do Brasil) and Persian (Farsi).
 
 = Show and hide widgets within a desired period and at given weekdays =
 
@@ -33,9 +35,11 @@ The user interface is available in
 
 * English
 * German (Deutsch)
-* Spanish (Español)
-* Brazilian Portuguese (Português do Brasil)
-* Persian (Farsi)
+* Spanish (Español), kindly drawn up by [Eduardo Larequi](https://profiles.wordpress.org/elarequi)
+* Brazilian Portuguese (Português do Brasil), kindly drawn up by [Christiano Albano P.](https://profiles.wordpress.org/cristianoalbanop)
+* Persian (Farsi), kindly drawn up by [Sajjad Panahi](https://profiles.wordpress.org/asreelm)
+
+Further translations are welcome. If you want to give in your translation please leave a notice in the [plugin's support forum](https://wordpress.org/support/plugin/widget-visibility-time-scheduler).
 
 == Installation ==
 
@@ -105,18 +109,6 @@ So to have safe values I have set deliberately the maximum valid year value to 2
 
 You can find a detailed and understandable explanation at [Wikipedia: Year 2038 problem](http://en.wikipedia.org/wiki/Year_2038_problem). That text also explains why the lowest year number is 1970.
 
-= Which languages does the plugin support? =
-
-Actually these languages are supported:
-
-* English
-* German (Deutsch)
-* Spanish (Español)
-* Brazilian Portuguese (Português do Brasil)
-* Persian (Farsi)
-
-Further translations are welcome. If you want to give in your translation please leave a notice in the [plugin's support forum](https://wordpress.org/support/plugin/widget-visibility-time-scheduler).
-
 = Where is the *.pot file for translating the plugin in any language? =
 
 If you want to contribute a translation of the plugin in your language it would be great! You would find the *.pot file in the 'languages' directory of this plugin. If you would send the *.po file to me I would include it in the next release of the plugin.
@@ -131,6 +123,11 @@ If you want to contribute a translation of the plugin in your language it would 
 
 == Changelog ==
 
+= 4.0.1 =
+* Tested successfully with WordPress 4.3
+* Updated persian translation
+* Updated persian screenshot
+
 = 4.0 =
 * Changed: Simplified interface; your former settings will be adopted
 * Changed: If not changed formerly all weekdays are checked by default
@@ -141,7 +138,7 @@ If you want to contribute a translation of the plugin in your language it would 
 * Updated *.pot file and translations
 
 = 3.1 =
-* Added persian translation (Farsi). Thank you very much [Sajjad Panahi](https://wordpress.org/support/profile/asreelm)
+* Added persian translation (Farsi). Thank you very much [Sajjad Panahi](https://profiles.wordpress.org/asreelm)
 * Added screenshot of widget in persian language
 * Fixed typo in german translation
 
@@ -151,14 +148,14 @@ If you want to contribute a translation of the plugin in your language it would 
 * Updated *.pot file and translations
 
 = 2.2 =
-* Added brazilian portuguese translation. Thank you very much [Christiano Albano P.](https://wordpress.org/support/profile/cristianoalbanop)
+* Added brazilian portuguese translation. Thank you very much [Christiano Albano P.](https://profiles.wordpress.org/cristianoalbanop)
 * Added screenshot of the widget in brazilian portuguese language
 
 = 2.1.1 =
 Fixed typo in the spanish translation 
 
 = 2.1 =
-* Added spanish translation. Thank you very much [Eduardo Larequi](https://wordpress.org/support/profile/elarequi)!
+* Added spanish translation. Thank you very much [Eduardo Larequi](https://profiles.wordpress.org/elarequi)!
 * Revised the description of the plugin
 * Added screenshots of the widget in german and spanish language
 * Updated *.pot file and german translation
@@ -185,8 +182,11 @@ Successfully tested with WordPress 4.1
 
 == Upgrade Notice ==
 
+= 4.0.1 =
+Updated persian translation, tested successfully with WordPress 4.3
+
 = 4.0 =
-Simplified interface, weekdays are set by default
+Simplified interface, weekdays are set by default, updated translations except Persian
 
 = 3.1 =
 Added persian (Farsi) translation
