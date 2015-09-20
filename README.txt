@@ -1,9 +1,9 @@
 === Widget Visibility Time Scheduler ===
 Contributors: Hinjiriyo
-Tags: brazilian, control, date, day, deutsch, display, español, farsi, forever, future, hide, hour, jetpack, minute, month, period, persian, plan, português do brasil, portuguese, schedule, scheduler, show, time, unlimited, visibility, weekdays, widget, widgets, year
+Tags: brazilian, control, date, day, deutsch, display, español, farsi, forever, future, german, hide, hour, hungarian, jetpack, magyar, minute, month, period, persian, plan, português do brasil, portuguese, schedule, scheduler, show, time, unlimited, visibility, weekdays, widget, widgets, year
 Requires at least: 3.5
-Tested up to: 4.3
-Stable tag: 4.0.1
+Tested up to: 4.3.1
+Stable tag: 4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,11 +11,11 @@ Control the visibility of each widget based on date, time and weekday easily.
 
 == Description ==
 
-The plugin is available in English, Spanish (Español), German (Deutsch), Brazilian Portuguese (Português do Brasil) and Persian (Farsi).
+The plugin is available in English, Spanish (Español), German (Deutsch), Brazilian Portuguese (Português do Brasil), Persian (Farsi) and Hungarian (Magyar).
 
 = Show and hide widgets within a desired period and at given weekdays =
 
-The Widget Visibility Time Scheduler enables you to set the period and weekdays of the visibility of each widget easily. You can set to show or to hide the widget during schedule. It is available in english, german, spanish, brazilian portuguese and persian language.
+The Widget Visibility Time Scheduler enables you to set the period and weekdays of the visibility of each widget easily. You can set to show or to hide the widget during schedule. It is available in english, german, spanish, brazilian portuguese, persian and hungarian language.
 
 = Daytime version available =
 
@@ -38,6 +38,7 @@ The user interface is available in
 * Spanish (Español), kindly drawn up by [Eduardo Larequi](https://profiles.wordpress.org/elarequi)
 * Brazilian Portuguese (Português do Brasil), kindly drawn up by [Christiano Albano P.](https://profiles.wordpress.org/cristianoalbanop)
 * Persian (Farsi), kindly drawn up by [Sajjad Panahi](https://profiles.wordpress.org/asreelm)
+* Hungarian (Magyar), kindly drawn up by [V.A.Lucky](https://wordpress.org/support/profile/valucky)
 
 Further translations are welcome. If you want to give in your translation please leave a notice in the [plugin's support forum](https://wordpress.org/support/plugin/widget-visibility-time-scheduler).
 
@@ -120,8 +121,13 @@ If you want to contribute a translation of the plugin in your language it would 
 3. Spanish interface of the Widget Visibility Time Scheduler in the Search Widget
 4. Brazilian portuguese interface of the Widget Visibility Time Scheduler in the Search Widget
 5. Persian (farsi) interface of the Widget Visibility Time Scheduler in the Search Widget
+6. Hungarian (magyar) interface of the Widget Visibility Time Scheduler in the Search Widget
 
 == Changelog ==
+
+= 4.1 =
+* Added hungarian translation. Thank you very much, [V.A.Lucky](https://wordpress.org/support/profile/valucky)
+* Tested successfully with WordPress 4.3.1
 
 = 4.0.1 =
 * Tested successfully with WordPress 4.3
@@ -181,6 +187,9 @@ Successfully tested with WordPress 4.1
 * Initial release.
 
 == Upgrade Notice ==
+
+= 4.1 =
+Added hungarian translation, tested successfully with WordPress 4.3.1
 
 = 4.0.1 =
 Updated persian translation, tested successfully with WordPress 4.3

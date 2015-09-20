@@ -1,0 +1,61 @@
+# Copyright (C) 2014
+# This file is distributed under the same license as the plugin package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Widget Visibility Time Scheduler\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/plugins/widget-visibility-time-"
+"scheduler\n"
+"POT-Creation-Date: 2015-08-04 01:13+0200\n"
+"PO-Revision-Date: 2015-09-20 12:59+0200\n"
+"Language-Team: m.stehle@gmx.de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;"
+"esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Last-Translator: Martin Stehle <m.stehle@gmx.de>\n"
+"Language: hu_HU\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-hinjiwvts-admin.php:140
+msgid ""
+"Control the visibility of each widget based on date, time and weekday easily."
+msgstr ""
+"Könnyen szabályozható minden widget láthatósága dátum, idő és a hét napjai "
+"alapján."
+
+#: admin/class-hinjiwvts-admin.php:168
+#, php-format
+msgid ""
+"Welcome to Widget Visibility Time Scheduler! You can set the time based "
+"visibility in each widget on the page %s."
+msgstr ""
+"Üdvözli a Widget Láthatósági Időzítő! Minden widget-re beállíthatja az idő "
+"alapú láthatóságot a %s lapon."
+
+#: admin/partials/hinjiwvts-fieldsets.php:18
+msgid "Visibility Time Scheduler"
+msgstr "Láthatósági időzítés"
+
+#: admin/partials/hinjiwvts-fieldsets.php:34
+msgid "from"
+msgstr "Tól"
+
+#: admin/partials/hinjiwvts-fieldsets.php:38
+msgid "to"
+msgstr "Ig"
+
+#: admin/partials/hinjiwvts-fieldsets.php:41
+msgid ""
+"Why only up to end of 2037? Read <a href=\"http://en.wikipedia.org/wiki/"
+"Year_2038_problem\" lang=\"en\">Wikipedia: Year 2038 problem</a>."
+msgstr ""
+"Miért csak 2037 végéig? Olvassa el <a href=\"https://hu.wikipedia.org/"
+"wiki/2038-probl%C3%A9ma\" lang=\"hu\">Wikipédia: A 2038-as év problémája</a>."
+
+#: admin/partials/hinjiwvts-fieldsets.php:44
+msgid "on"
+msgstr "Mikor"
