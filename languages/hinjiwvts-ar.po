@@ -1,0 +1,60 @@
+# Copyright (C) 2014
+# This file is distributed under the same license as the plugin package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Widget Visibility Time Scheduler\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/plugins/widget-visibility-time-"
+"scheduler\n"
+"POT-Creation-Date: 2015-09-20 16:06+0300\n"
+"PO-Revision-Date: 2015-09-20 19:09+0200\n"
+"Language-Team: m.stehle@gmx.de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;"
+"esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"Last-Translator: Martin Stehle <m.stehle@gmx.de>\n"
+"Language: ar\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-hinjiwvts-admin.php:140
+msgid ""
+"Control the visibility of each widget based on date, time and weekday easily."
+msgstr "تحكّم بظهور كل ودجت بناءً على التاريخ والوقت واليوم بسهولة."
+
+#: admin/class-hinjiwvts-admin.php:168
+#, php-format
+msgid ""
+"Welcome to Widget Visibility Time Scheduler! You can set the time based "
+"visibility in each widget on the page %s."
+msgstr ""
+"أهلاً بك في إضافة \"جدولة ظهور الودجت زمنياّ\"! بإمكانك تحديد الظهور المبني "
+"على الوقت في كل ودجت في الصفحة %s."
+
+#: admin/partials/hinjiwvts-fieldsets.php:18
+msgid "Visibility Time Scheduler"
+msgstr "جدولة الظهور زمنياً"
+
+#: admin/partials/hinjiwvts-fieldsets.php:34
+msgid "from"
+msgstr "من"
+
+#: admin/partials/hinjiwvts-fieldsets.php:38
+msgid "to"
+msgstr "إلى"
+
+#: admin/partials/hinjiwvts-fieldsets.php:41
+msgid ""
+"Why only up to end of 2037? Read <a href=\"http://en.wikipedia.org/wiki/"
+"Year_2038_problem\" lang=\"en\">Wikipedia: Year 2038 problem</a>."
+msgstr ""
+"لماذا فقط حتى نهاية 2037؟ اقرأ <a href=\"http://en.wikipedia.org/wiki/"
+"Year_2038_problem\" lang=\"en\">Wikipedia: Year 2038 problem</a>."
+
+#: admin/partials/hinjiwvts-fieldsets.php:44
+msgid "on"
+msgstr "في"
