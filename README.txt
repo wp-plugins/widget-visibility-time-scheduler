@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: arabic, brazilian, control, date, day, deutsch, display, español, farsi, forever, future, german, hide, hour, hungarian, jetpack, magyar, minute, month, period, persian, plan, português do brasil, portuguese, schedule, scheduler, show, time, unlimited, visibility, weekdays, widget, widgets, year
 Requires at least: 3.5
 Tested up to: 4.3.1
-Stable tag: 4.2
+Stable tag: 4.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -133,6 +133,9 @@ All texts of the plugin are in the *.pot file. You would find the *.pot file in 
 
 == Changelog ==
 
+= 4.2.1 =
+* Revised brazilian portuguese translation
+
 = 4.2 =
 * Added arabic translation. Thank you very much, [Shadi AlZard](https://wordpress.org/support/profile/salzard)
 
@@ -198,6 +201,9 @@ Successfully tested with WordPress 4.1
 * Initial release.
 
 == Upgrade Notice ==
+
+= 4.2.1 =
+Revised brazilian portuguese translation
 
 = 4.2 =
 Added arabic translation
